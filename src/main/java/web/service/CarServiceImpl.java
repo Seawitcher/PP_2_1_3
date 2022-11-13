@@ -20,10 +20,6 @@ public class CarServiceImpl implements CarService {
         this.carDAO = carDAO;
     }
 
-    @Override
-    public List<Car> getMyCarsList(int i) {
-        return carDAO.getMyCarsList(i);
-    }
 
     @Override
     @Transactional
