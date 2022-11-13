@@ -2,20 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New Car</title>
+    <title>New_Update Car</title>
 </head>
 <body>
 <div align="left">
-    <h3> New User</h3>
+    <h3> New/Update CAR</h3>
     <form th:method="PATCH" th:action="@{/{id}(id=${car.getId()})}" th:object="${car}">
         <label for="model">Model: </label>
         <input type="text" th:field="*{modelCar}" id="model"/>
         <br>
         <label for="color">Color: </label>
         <input type="text" th:field="*{colorCar}" id="color"/>
-<!--        <br>-->
-<!--        <label for="age">Age: </label>-->
-<!--        <input type="text" th:field="*{age}" id="age"/>-->
         <br>
         <br>
         <input type="submit" value="CREATE!"/>
