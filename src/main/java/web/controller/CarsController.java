@@ -56,7 +56,7 @@ public class CarsController {
     public String updateCar(Model model, @PathVariable("id") int id) {
 
         model.addAttribute("car", carService.getCar(id));
-        return "update_car";
+        return "car_info";
     }
     @PatchMapping("{id}")
     public String carUpdate(@PathVariable("id") int id, @ModelAttribute("car") Car car) {

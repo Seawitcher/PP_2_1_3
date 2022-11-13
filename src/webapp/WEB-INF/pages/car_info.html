@@ -7,7 +7,7 @@
 <body>
 <div align="left">
     <h3> New User</h3>
-    <form th:method="POST" th:action="@{/}" th:object="${car}">
+    <form th:method="PATCH" th:action="@{/{id}(id=${car.getId()})}" th:object="${car}">
         <label for="model">Model: </label>
         <input type="text" th:field="*{modelCar}" id="model"/>
         <br>
