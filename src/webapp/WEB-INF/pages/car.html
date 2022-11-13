@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>All people</title>
+    <title>All cars</title>
 </head>
 <body>
 
@@ -28,9 +28,8 @@
 
             <td>
                 <a th:href="@{/{id}(id=${car.getId()})}">
-                    <input type="submit" value="UPDATE">
+                    <input type="submit" value="UPDATE"/>
                 </a>
-                <br>
                 <br>
                 <form th:method="DELETE" th:action="@{/delete/{id}(id=${car.getId()})}" >
                     <input type="submit" value="DELETE"/>

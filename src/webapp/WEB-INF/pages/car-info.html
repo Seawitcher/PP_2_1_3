@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New User</title>
+    <title>New Car</title>
 </head>
 <body>
-<div align="center">
+<div align="left">
     <h3> New User</h3>
     <form th:method="POST" th:action="@{/}" th:object="${car}">
         <label for="model">Model: </label>
@@ -17,7 +17,8 @@
 <!--        <label for="age">Age: </label>-->
 <!--        <input type="text" th:field="*{age}" id="age"/>-->
         <br>
-        <input type="submit" value="Create"/>
+        <br>
+        <input type="submit" value="CREATE!"/>
     </form>
 </div>
 </body>
