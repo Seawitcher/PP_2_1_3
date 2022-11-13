@@ -42,4 +42,16 @@ public class CarDAOImpl implements CarDAO{
     public List<Car> getList() {
         return entityManager.createQuery("select c from Car c", Car.class).getResultList();
     }
+@Override
+    public Car getCar(int id) {
+        return entityManager.find(Car.class, id);
+    }
+    @Override
+    public void deleteCar(int id) {
+        entityManager.remove(getCar(id));
+    }
+    @Override
+    public void updateCar(Car car) {
+        entityManager.merge(car);
+    }
 }
