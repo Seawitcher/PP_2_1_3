@@ -1,15 +1,21 @@
 package web.DAO;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import web.model.Car;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+//@Component
+@Repository
 public class CarDAOImpl implements CarDAO{
     private static int CAR_ID;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private final List<Car> myCars;
 
