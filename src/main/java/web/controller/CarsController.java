@@ -23,27 +23,21 @@ public class CarsController {
         this.carService = carService;
     }
 
-    //    @GetMapping()
-//    public String getCars(@RequestParam("count") int count, Model model) {
-//
-//    model.addAttribute("myCars", carService.getMyCarsList(count));
-//        return "cars";
-//    }
     @GetMapping
     public String getCars(Model model) {
         model.addAttribute("carList", carService.getList());
         return "car";
     }
 
-    @GetMapping("/new")
-    public String addCar(Model model) {
+    @GetMapping("/newAddCar")
+    public String addNewCar(Model model) {
         Car car = new Car();
         model.addAttribute("car", car);
         return "car_info";
     }
 
     @PostMapping
-    public String newCar (@ModelAttribute("car") Car car) {
+    public String saveNewCar (@ModelAttribute("car") Car car) {
         carService.add(car);
         return "redirect:/";
     }
@@ -52,14 +46,14 @@ public class CarsController {
         carService.deleteCar(id);
         return "redirect:/";
     }
-    @GetMapping("{id}")
+    @GetMapping("/updateCar/{id}")
     public String updateCar(Model model, @PathVariable("id") int id) {
 
         model.addAttribute("car", carService.getCar(id));
         return "car_info";
     }
     @PatchMapping("{id}")
-    public String carUpdate(@PathVariable("id") int id, @ModelAttribute("car") Car car) {
+    public String carSaveUpdate(@PathVariable("id") int id, @ModelAttribute("car") Car car) {
         carService.updateCar(car);
         return "redirect:/";
     }

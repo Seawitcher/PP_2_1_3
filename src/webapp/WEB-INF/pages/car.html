@@ -27,7 +27,7 @@
             <td th:utext="${car.getColorCar()}">VALUE</td>
 
             <td>
-                <a th:href="@{/{id}(id=${car.getId()})}">
+                <a th:href="@{/updateCar/{id}(id=${car.getId()})}">
                     <input type="submit" value="UPDATE"/>
                 </a>
                 <br>
@@ -38,7 +38,7 @@
         </tr>
     </table>
     <br>
-    <form method="get" action="/new">
+    <form method="GET" action="/newAddCar">
         <button type="submit">ADD</button>
     </form>
 </div>
