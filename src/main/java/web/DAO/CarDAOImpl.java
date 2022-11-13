@@ -1,18 +1,17 @@
 package web.DAO;
 
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Repository;
 import web.model.Car;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
-//@Component
+import java.util.List;
+
+
 @Repository
-public class CarDAOImpl implements CarDAO{
+public class CarDAOImpl implements CarDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -21,18 +20,22 @@ public class CarDAOImpl implements CarDAO{
     public void add(Car car) {
         entityManager.persist(car);
     }
+
     @Override
     public List<Car> getList() {
         return entityManager.createQuery("select c from Car c", Car.class).getResultList();
     }
-@Override
+
+    @Override
     public Car getCar(int id) {
         return entityManager.find(Car.class, id);
     }
+
     @Override
     public void deleteCar(int id) {
         entityManager.remove(getCar(id));
     }
+
     @Override
     public void updateCar(Car car) {
         entityManager.merge(car);
