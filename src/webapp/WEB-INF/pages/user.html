@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All people</title>
+</head>
+<body>
+
+<div>
+
+    <table border="1">
+        <caption>
+            <h3>Cars</h3>
+        </caption>
+        <tr>
+            <colgroup>
+                <col span="5" style="background-color: red">
+            </colgroup>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="car : ${carList}">
+            <td th:utext="${car.getId()}">VALUE</td>
+            <td th:utext="${car.getModelCar()}">VALUE</td>
+            <td th:utext="${car.getColorCar()}">VALUE</td>
+
+            <td>
+                <a th:href="@{/{id}(id=${car.getId()})}">
+                    <input type="submit" value="UPDATE">
+                </a>
+                <br>
+                <br>
+                <form th:method="DELETE" th:action="@{/delete/{id}(id=${car.getId()})}" >
+                    <input type="submit" value="DELETE"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <form method="get" action="/new">
+        <button type="submit">ADD USER</button>
+    </form>
+</div>
+
+</body>
+</html>

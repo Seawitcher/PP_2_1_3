@@ -34,4 +34,12 @@ public class CarDAOImpl implements CarDAO{
         }
         return myCars.stream().limit(i).collect(Collectors.toList());
     }
+    @Override
+    public void add(Car car) {
+        entityManager.persist(car);
+    }
+    @Override
+    public List<Car> getList() {
+        return entityManager.createQuery("select c from Car c", Car.class).getResultList();
+    }
 }

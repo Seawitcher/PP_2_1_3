@@ -3,6 +3,7 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import web.DAO.CarDAO;
 import web.model.Car;
 
@@ -20,5 +21,16 @@ public class CarServiceImpl implements CarService {
 @Override
     public List<Car> getMyCarsList(int i) {
     return carDAO.getMyCarsList(i);
+    }
+
+    @Override
+    @Transactional
+    public void add(Car car) {
+        carDAO.add(car);
+    }
+    @Override
+    @Transactional
+    public List<Car> getList() {
+    return carDAO.getList();
     }
 }
