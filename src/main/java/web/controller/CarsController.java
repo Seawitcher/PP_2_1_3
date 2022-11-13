@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import web.model.Car;
 import web.service.CarService;
 
@@ -40,7 +39,7 @@ public class CarsController {
     public String addCar(Model model) {
         Car car = new Car();
         model.addAttribute("car", car);
-        return "car-info";
+        return "car_info";
     }
 
     @PostMapping
@@ -52,6 +51,12 @@ public class CarsController {
     public String deleteCar(@PathVariable("id") int id) {
         carService.deleteCar(id);
         return "redirect:/";
+    }
+    @GetMapping("{id}")
+    public String updateCar(Model model, @PathVariable("id") int id) {
+
+        model.addAttribute("car", carService.getCar(id));
+        return "update_car";
     }
     @PatchMapping("{id}")
     public String carUpdate(@PathVariable("id") int id, @ModelAttribute("car") Car car) {

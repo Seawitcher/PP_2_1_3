@@ -31,7 +31,7 @@
                     <input type="submit" value="UPDATE"/>
                 </a>
                 <br>
-                <form th:method="DELETE" th:action="@{/delete/{id}(id=${car.getId()})}" >
+                <form th:method="DELETE" th:action="@{/delete/{id}(id=${car.getId()})}">
                     <input type="submit" value="DELETE"/>
                 </form>
             </td>
